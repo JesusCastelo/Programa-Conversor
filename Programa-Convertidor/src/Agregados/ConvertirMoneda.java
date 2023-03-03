@@ -1,16 +1,12 @@
 package Agregados;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ConvertirMoneda extends Convertir implements Funcionalidad{
-
-    private double valorConvertir;
-    private String msgMostrar;
     
     @Override
-    public List<String> getListaTiposConversion() {
-        List<String> obtenerTiposConversion = new ArrayList<>();
+    public ArrayList<String> getListaTiposConversion() {
+        ArrayList<String> obtenerTiposConversion = new ArrayList<>();
         
         for(TiposMoneda tipoMoneda : TiposMoneda.values()){
             obtenerTiposConversion.add(tipoMoneda.getTipoConversion());
@@ -20,8 +16,8 @@ public class ConvertirMoneda extends Convertir implements Funcionalidad{
     }
 
     @Override
-    public List<String> getListaSimbolosIni() {
-        List<String> obtenerListaSimbolosIni = new ArrayList<>();
+    public ArrayList<String> getListaSimbolosIni() {
+        ArrayList<String> obtenerListaSimbolosIni = new ArrayList<>();
         
         for(TiposMoneda tipoMoneda : TiposMoneda.values()){
             obtenerListaSimbolosIni.add(tipoMoneda.getTipoConversion());
@@ -31,8 +27,8 @@ public class ConvertirMoneda extends Convertir implements Funcionalidad{
     }
 
     @Override
-    public List<String> getListaSimboloFin() {
-        List<String> obtenerListaSimboloFin = new ArrayList<>();
+    public ArrayList<String> getListaSimboloFin() {
+        ArrayList<String> obtenerListaSimboloFin = new ArrayList<>();
         
         for(TiposMoneda tipoMoneda : TiposMoneda.values()){
             obtenerListaSimboloFin.add(tipoMoneda.getTipoConversion());
@@ -42,8 +38,8 @@ public class ConvertirMoneda extends Convertir implements Funcionalidad{
     }
     
     @Override
-    public List<Double> getListaValoresDeConversion() {
-        List<Double> obtenerListaValoresDeConversion = new ArrayList<>();
+    public ArrayList<Double> getListaValoresDeConversion() {
+        ArrayList<Double> obtenerListaValoresDeConversion = new ArrayList<>();
         
         for(TiposMoneda tipoMoneda : TiposMoneda.values()){
             obtenerListaValoresDeConversion.add(tipoMoneda.getValorDeConversion());
@@ -54,12 +50,18 @@ public class ConvertirMoneda extends Convertir implements Funcionalidad{
 
     @Override
     public double ejecutarFormula() {
-        
-        return 1*1;
+        return valorIni * getListaValoresDeConversion().get(posicionArray);
     }
     
     public void ejecutarConversion(){
-        msgMostrar = "Ingrese el monto que desea ocnvertir";
-        valorConvertir = obtenerValor(msgMostrar);
+        msgMostrar = "Ingrese el monto que desea convertir";
+        valorIni = obtenerValor(msgMostrar);
+        listaTipoConversion = getListaTiposConversion();
+        listaSimbolosIni = getListaSimbolosIni();
+        listaSimbolosFin = getListaSimboloFin();
+        valorFin = ejecutarFormula();
+        msgMostrar = "Elija el tipo de conversion";
+        mostrarConversion(msgMostrar, listaTipoConversion, false, valorIni, valorFin,
+                            listaSimbolosIni.get(posicionArray), listaSimbolosFin.get(posicionArray));
     }
 }

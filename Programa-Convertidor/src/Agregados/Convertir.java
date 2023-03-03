@@ -6,10 +6,20 @@ import java.util.ArrayList;
 import java.text.DecimalFormat;
 
 public class Convertir {
-    DecimalFormat deciFormat = new DecimalFormat("#.0");
+    DecimalFormat decimalFormat = new DecimalFormat("#.0");
+    
     protected final String msgTitulo = "Conversor";
     protected final String msgError = "Error! Ingrese un número";
+    
+    protected String msgMostrar;
     protected int posicionArray = 0;
+    protected double valorIni;
+    protected double valorFin;
+    
+    protected ArrayList<String> listaTipoConversion;
+    protected ArrayList<String> listaSimbolosIni;
+    protected ArrayList<String> listaSimbolosFin;
+    protected ArrayList<Double> listaValoresDeConversion;
     
     public double obtenerValor(String msgMostrar){
         double valor;
@@ -32,22 +42,41 @@ public class Convertir {
         return msgObtenido;
     }
     
-    public void mostrarConversion(String tipoConversion,ArrayList<String> listaTipoConversion,boolean simboloDerecha,
+    public void mostrarConversion(String msgMostrar,ArrayList<String> listaTipoConversion,boolean simboloDerecha,
                                     double valorIni, double valorFin, String simboloIni,String simboloFin){
+        
+        String tipoConversion = obtenerTipoConversion(msgMostrar, listaTipoConversion);
+        
         for(;posicionArray < listaTipoConversion.size();posicionArray++){
             if(tipoConversion == listaTipoConversion.get(posicionArray)){
                 if(simboloDerecha){
-                    String msgConversion = String.format("%f%s son %f%s",valorIni,simboloIni,deciFormat.format(valorFin),simboloFin);
+                    String msgConversion = String.format("%f%s son " + decimalFormat.format(valorFin) + "%s",valorIni,simboloIni,simboloFin);
                     JOptionPane.showMessageDialog(null, msgConversion, this.msgTitulo, JOptionPane.INFORMATION_MESSAGE);
                 }else{
-                    String msgConversion = String.format("%s%f son %s%f",simboloIni,valorIni,simboloFin,deciFormat.format(valorFin));
+                    String msgConversion = String.format("%s%f son %s" + decimalFormat.format(valorFin),simboloIni,valorIni,simboloFin);
                     JOptionPane.showMessageDialog(null, msgConversion, this.msgTitulo, JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-        } 
+        }
+        
+        repetirConversion(msgMostrar, listaTipoConversion, simboloDerecha, valorIni, valorFin, simboloIni, simboloFin);
     }
     
-    public void repetirConversion(){
+    public void repetirConversion(String msgMostrar,ArrayList<String> listaTipoConversion,boolean simboloDerecha,
+                                    double valorIni, double valorFin, String simboloIni,String simboloFin){
         
+        int opcionElegida = JOptionPane.showConfirmDialog(null, "¿Desea continuar?", "Conversion",JOptionPane.YES_NO_CANCEL_OPTION);
+        
+        switch(opcionElegida){
+            case 0:
+                mostrarConversion(msgMostrar, listaTipoConversion, simboloDerecha, valorIni, valorFin, simboloIni, simboloFin);
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, "Finalizo el programa", "Conversion", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Finalizo el programa", "Conversion", JOptionPane.INFORMATION_MESSAGE);
+                break;
+        }
     }
 }
