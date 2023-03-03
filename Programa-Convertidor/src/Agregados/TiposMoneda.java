@@ -23,7 +23,7 @@ public enum TiposMoneda implements FuncionalidadTipos{
         this.simboloFin = simboloFin;
         this.valorDeConversion = valorDeConversion;
     }
-
+    
     @Override
     public String getTipoConversion() {return this.tipoConversion;}
 

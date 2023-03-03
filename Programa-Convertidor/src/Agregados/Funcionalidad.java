@@ -1,8 +1,9 @@
 package Agregados;
 
 public interface Funcionalidad {
-    String[] listaTiposConversion();
-    String[] listaSimbolosIni();
-    String[] listaSimboloFin();
-    double[] listaValoresDeConversion();
+    String[] getListaTiposConversion();
+    String[] getListaSimbolosIni();
+    String[] getListaSimboloFin();
+    double[] getListaValoresDeConversion();
+    double ejecutarFormula();
 }
