@@ -1,9 +1,10 @@
 package Agregados;
+import java.util.List;
 
 public interface Funcionalidad {
-    String[] getListaTiposConversion();
-    String[] getListaSimbolosIni();
-    String[] getListaSimboloFin();
-    double[] getListaValoresDeConversion();
+    List<String> getListaTiposConversion();
+    List<String> getListaSimbolosIni();
+    List<String> getListaSimboloFin();
+    List<Double> getListaValoresDeConversion();
     double ejecutarFormula();
 }

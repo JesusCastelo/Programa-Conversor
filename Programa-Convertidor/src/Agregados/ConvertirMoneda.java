@@ -3,71 +3,63 @@ package Agregados;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConvertirMoneda implements Funcionalidad{
+public class ConvertirMoneda extends Convertir implements Funcionalidad{
 
+    private double valorConvertir;
+    private String msgMostrar;
+    
     @Override
-    public String[] getListaTiposConversion() {
+    public List<String> getListaTiposConversion() {
         List<String> obtenerTiposConversion = new ArrayList<>();
         
         for(TiposMoneda tipoMoneda : TiposMoneda.values()){
             obtenerTiposConversion.add(tipoMoneda.getTipoConversion());
         }
-        
-        final String[] listaTipoConversion = new String[obtenerTiposConversion.size()];
-        
-        for(int i = 0; i < listaTipoConversion.length; i++){
-            listaTipoConversion[i] = obtenerTiposConversion.get(i);
-        }
-        
-        obtenerTiposConversion.clear();   
-        return listaTipoConversion;
+         
+        return obtenerTiposConversion;
     }
 
     @Override
-    public String[] getListaSimbolosIni() {
+    public List<String> getListaSimbolosIni() {
         List<String> obtenerListaSimbolosIni = new ArrayList<>();
         
         for(TiposMoneda tipoMoneda : TiposMoneda.values()){
             obtenerListaSimbolosIni.add(tipoMoneda.getTipoConversion());
         }
-        
-        final String[] listaSimbolosIni = new String[obtenerListaSimbolosIni.size()];
-        
-        for(int i = 0; i < listaSimbolosIni.length; i++){
-            listaSimbolosIni[i] = obtenerListaSimbolosIni.get(i);
-        }
-        
-        obtenerListaSimbolosIni.clear();   
-        return listaSimbolosIni;
+   
+        return obtenerListaSimbolosIni;
     }
 
     @Override
-    public String[] getListaSimboloFin() {
+    public List<String> getListaSimboloFin() {
         List<String> obtenerListaSimboloFin = new ArrayList<>();
         
         for(TiposMoneda tipoMoneda : TiposMoneda.values()){
             obtenerListaSimboloFin.add(tipoMoneda.getTipoConversion());
         }
-        
-        final String[] listaSimboloFin = new String[obtenerListaSimboloFin.size()];
-        
-        for(int i = 0; i < listaSimboloFin.length; i++){
-            listaSimboloFin[i] = obtenerListaSimboloFin.get(i);
-        }
-        
-        obtenerListaSimboloFin.clear();   
-        return listaSimboloFin;
+  
+        return obtenerListaSimboloFin;
     }
     
     @Override
-    public double[] getListaValoresDeConversion() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public List<Double> getListaValoresDeConversion() {
+        List<Double> obtenerListaValoresDeConversion = new ArrayList<>();
+        
+        for(TiposMoneda tipoMoneda : TiposMoneda.values()){
+            obtenerListaValoresDeConversion.add(tipoMoneda.getValorDeConversion());
+        }
+  
+        return obtenerListaValoresDeConversion;
     }
 
     @Override
     public double ejecutarFormula() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        return 1*1;
     }
     
-    
+    public void ejecutarConversion(){
+        msgMostrar = "Ingrese el monto que desea ocnvertir";
+        valorConvertir = obtenerValor(msgMostrar);
+    }
 }
