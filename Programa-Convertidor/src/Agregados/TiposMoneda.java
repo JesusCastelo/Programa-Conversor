@@ -1,16 +1,16 @@
 package Agregados;
 
 public enum TiposMoneda implements FuncionalidadTipos{
-    SOLES_A_DOLARES("Convertir Soles a Dolares", "S/", "$", 0.26),
-    SOLES_A_EUROS("Convertir Soles a Euros", "S/", "€", 0.24),
-    SOLES_A_LIBRAESTERLINA("Convertir Soles a Libras Esterlinas","S/","£",0.22),
-    SOLES_A_YENJAPONES("Convertir Soles a Yen Japonés","S/","¥",35.88),
-    SOLES_A_WONSURCOREANO("Convertir Soles a Won Surcoreano","S/","₩",345.36),
-    DOLARES_A_SOLES("Convertir Dolares a Soles", "$", "S/", 3.81),
-    EUROS_A_SOLES("Convertir Euros a Soles", "€", "S/", 4.04),
-    LIBRAESTERLINA_A_SOLES("Convertir Libras Esterlinas a Soles","£","S/",4.56),
-    YENJAPONES_A_SOLES("Convertir Yen Japonés a Soles","¥","S/",0.028),
-    WONSURCOREANO_A_SOLES("Convertir Won Surcoreano a Soles","₩","S/",0.0029);
+    SOL_A_DOLAR("Convertir de Sol a Dolar", "S/", "$", 0.26),
+    SOL_A_EURO("Convertir de Sol a Euro", "S/", "€", 0.25),
+    SOL_A_LIBRAESTERLINA("Convertir de Sol a Libra Esterlina","S/","£",0.22),
+    SOL_A_YENJAPONES("Convertir de Sol a Yen Japonés","S/","¥",35.88),
+    SOL_A_WONSURCOREANO("Convertir de Sol a Won Surcoreano","S/","₩",342.39),
+    DOLAR_A_SOL("Convertir de Dolar a Sol", "$", "S/", 3.81),
+    EURO_A_SOL("Convertir de Euro a Sol", "€", "S/", 4.04),
+    LIBRAESTERLINA_A_SOL("Convertir de Libra Esterlina a Sol","£","S/",4.56),
+    YENJAPONES_A_SOL("Convertir de Yen Japonés a Sol","¥","S/",0.028),
+    WONSURCOREANO_A_SOL("Convertir de Won Surcoreano a Sol","₩","S/",0.0029);
     
     private final String tipoConversion;
     private final String simboloIni;

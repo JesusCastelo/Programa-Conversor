@@ -6,5 +6,5 @@ public interface Funcionalidad {
     List<String> getListaSimbolosIni();
     List<String> getListaSimboloFin();
     List<Double> getListaValoresDeConversion();
-    double ejecutarFormula();
+    void ejecutarConversion();
 }
